@@ -52,7 +52,7 @@ def plot_taylor_axes(axes, cax, option):
         # Single panel
         
         if option['titlestd'] == 'on':
-            handle = plt.ylabel('Standard Deviation',
+            handle = plt.ylabel('STD Ratio',
                               color = option['colstd'], 
                               fontweight = axlabweight, fontsize = fontSize)
             ax.append(handle)
@@ -102,7 +102,7 @@ def plot_taylor_axes(axes, cax, option):
         # Double panel
     
         if option['titlestd'] == 'on':
-            handle = plt.xlabel('Standard Deviation',
+            handle = plt.xlabel('STD Ratio',
                               color = option['colstd'], 
                               fontweight = axlabweight, fontsize = fontSize)
             ax.append(handle)
