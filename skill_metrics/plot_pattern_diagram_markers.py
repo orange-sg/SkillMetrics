@@ -70,6 +70,7 @@ def plot_pattern_diagram_markers(X,Y,option):
                     marker.append(symbol)
                     rgba = color + (alpha,)
                     markercolor.append(rgba)
+            print(markercolor)
         else:
             # Define markers and colors using predefined list
             marker = []
