@@ -59,18 +59,25 @@ def plot_taylor_axes(axes, cax, option):
         
         if option['titlecor'] == 'on':
             pos1 = 45; DA = 10;#45,15
-            lab = 'Correlation Coefficient' 
-            c = np.fliplr([np.linspace(pos1-DA,pos1+DA,len(lab))])[0]
+            lab = 'Correlation'
+            # c = np.fliplr([np.linspace(pos1-DA,pos1+DA,len(lab))])[0]
             dd = 1.1*axes['rmax']
-            for ii,ith in enumerate(c): 
-                handle = plt.text(dd*np.cos(ith*np.pi/180),
-                                   dd*np.sin(ith*np.pi/180),
-                                   lab[ii]) 
-                handle.set(rotation = ith-90,color = option['colcor'],
+            # for ii,ith in enumerate(c):
+            #     handle = plt.text(dd*np.cos(ith*np.pi/180),
+            #                        dd*np.sin(ith*np.pi/180),
+            #                        lab[ii])
+            #     handle.set(rotation = ith-90,color = option['colcor'],
+            #                 horizontalalignment = 'center',
+            #                 verticalalignment = 'bottom',
+            #                 fontsize = fontSize, fontweight = axlabweight)
+            handle = plt.text(dd*np.cos(45*np.pi/180),
+                                   dd*np.sin(45*np.pi/180),
+                                   lab)
+            handle.set(rotation = 45-90,color = option['colcor'],
                             horizontalalignment = 'center',
                             verticalalignment = 'bottom',
                             fontsize = fontSize, fontweight = axlabweight)
-                ax.append(handle) 
+            ax.append(handle)
         
         if option['titlerms'] == 'on':
             lab = option['labelrms']
