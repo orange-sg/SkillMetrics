@@ -44,7 +44,7 @@ def plot_taylor_axes(axes, cax, option):
     '''
     
     ax = []
-    axlabweight = 'bold'
+    axlabweight = 'normal'
     fontSize = rcParams.get('font.size') + 4
     lineWidth = rcParams.get('lines.linewidth')
 
@@ -52,7 +52,7 @@ def plot_taylor_axes(axes, cax, option):
         # Single panel
         
         if option['titlestd'] == 'on':
-            handle = plt.ylabel('Standard Deviation (Normalized)',
+            handle = plt.ylabel('NSTD',
                               color = option['colstd'], 
                               fontweight = axlabweight, fontsize = fontSize)
             ax.append(handle)
@@ -61,7 +61,7 @@ def plot_taylor_axes(axes, cax, option):
             pos1 = 45; DA = 10;#45,15
             lab = 'Correlation'
             # c = np.fliplr([np.linspace(pos1-DA,pos1+DA,len(lab))])[0]
-            dd = 1.1*axes['rmax']
+            dd = 1.05*axes['rmax']
             # for ii,ith in enumerate(c):
             #     handle = plt.text(dd*np.cos(ith*np.pi/180),
             #                        dd*np.sin(ith*np.pi/180),

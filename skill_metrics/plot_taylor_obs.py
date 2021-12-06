@@ -51,7 +51,7 @@ def plot_taylor_obs(ax, obsSTD, axes, option):
         # Put label below the marker
         labelsize = ax[0].get_fontsize() # get label size of STD axes
         plt.xlabel(option['titleobs'], color = option['colobs'],
-                   fontweight = 'bold', fontsize = labelsize)
+                   fontweight = 'normal', fontsize = labelsize)
         xlabelh = plt.gca().xaxis.get_label()
         xypos = xlabelh.get_position()
         markerpos = plt.gca().transLimits.transform((obsSTD,0))
