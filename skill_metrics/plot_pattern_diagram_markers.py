@@ -53,8 +53,10 @@ def plot_pattern_diagram_markers(X,Y,option):
         # displayed in a legend
         
         # Define markers
-        kind = ['+','o','x','s','d','^','v','p','h','*']
-        colorm = ['#c241415','#e5664b','#f58328','#f5ae4b','#ccd9f7','#74aed4','#3371b0','#194b90']
+        # kind = ['+','o','x','s','d','^','v','p','h','*']
+        # colorm = ['#c241415','#e5664b','#f58328','#f5ae4b','#ccd9f7','#74aed4','#3371b0','#194b90']
+        kind = option('markerlabel')
+        colorm = option('markercolor')
         if len(X) > 70:
             _disp('You must introduce new markers to plot more than 70 cases.')
             _disp('The ''marker'' character array need to be extended inside the code.')
@@ -65,8 +67,8 @@ def plot_pattern_diagram_markers(X,Y,option):
             markercolor = []
             for color in colorm:
                 for symbol in kind:
-                    marker.append(symbol + option['markercolor'])
-                    rgba = clr.to_rgb(option['markercolor']) + (alpha,)
+                    marker.append(symbol + color)
+                    rgba = clr.to_rgb(color) + (alpha,)
                     markercolor.append(rgba)
         else:
             # Define markers and colors using predefined list
