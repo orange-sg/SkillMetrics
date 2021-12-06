@@ -67,7 +67,7 @@ def plot_pattern_diagram_markers(X,Y,option):
             markercolor = []
             for color in colorm:
                 for symbol in kind:
-                    marker.append(symbol + color)
+                    marker.append(symbol)
                     rgba = color + (alpha,)
                     markercolor.append(rgba)
         else:
@@ -76,7 +76,7 @@ def plot_pattern_diagram_markers(X,Y,option):
             markercolor = [] #Bug Fix: missing array initialization
             for color in colorm:
                 for symbol in kind:
-                    marker.append(symbol + color)
+                    marker.append(symbol)
                     rgba = color + (alpha,)
                     markercolor.append(rgba)
         
@@ -88,7 +88,7 @@ def plot_pattern_diagram_markers(X,Y,option):
             if abs(X[i]) <= limit and abs(Y[i]) <= limit:
                 h = plt.plot(X[i],Y[i],marker[i], markersize = markerSize, 
                      markerfacecolor = markercolor[i],
-                     markeredgecolor = marker[i][1],
+                     markeredgecolor = markercolor[i],
                      markeredgewidth = 2)
                 hp += tuple(h)
                 markerlabel.append(option['markerlabel'][i])
