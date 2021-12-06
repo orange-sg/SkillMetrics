@@ -52,13 +52,13 @@ def plot_taylor_axes(axes, cax, option):
         # Single panel
         
         if option['titlestd'] == 'on':
-            handle = plt.ylabel('STD Ratio',
+            handle = plt.ylabel('Standard Deviation (Normalized)',
                               color = option['colstd'], 
                               fontweight = axlabweight, fontsize = fontSize)
             ax.append(handle)
         
         if option['titlecor'] == 'on':
-            pos1 = 45; DA = 15;
+            pos1 = 40; DA = 20;#45,15
             lab = 'Correlation Coefficient' 
             c = np.fliplr([np.linspace(pos1-DA,pos1+DA,len(lab))])[0]
             dd = 1.1*axes['rmax']
@@ -74,7 +74,7 @@ def plot_taylor_axes(axes, cax, option):
         
         if option['titlerms'] == 'on':
             lab = option['labelrms']
-            pos1 = option['titlermsdangle']; DA = 10
+            pos1 = option['titlermsdangle']; DA = 20#10
             c = np.fliplr([np.linspace(pos1-DA,pos1+DA,len(lab))])[0]
             if option['tickrms'][0] > 0:
                 dd = 0.8*option['tickrms'][0] + 0.2*option['tickrms'][1]
