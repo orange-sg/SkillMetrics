@@ -66,12 +66,13 @@ def plot_pattern_diagram_markers(X,Y,option):
             # Define markers with specified color
             marker = []
             markercolor = []
-            for color in colorm:
-                for symbol in kind:
-                    marker.append(symbol)
-                    rgba = color + (alpha,)
+            if len(colorm) == len(kind):
+                for i in range(len(colorm)):
+                    marker.append(kind[i])
+                    rgba = colorm[i] + (alpha,)
                     markercolor.append(rgba)
-            print(markercolor)
+            else:
+                print('The num of colors and markers should be equal!')
         else:
             # Define markers and colors using predefined list
             marker = []
