@@ -63,7 +63,7 @@ def add_legend(markerLabel, option, rgba, markerSize, fontSize, hp = []):
             markerlabel = tuple(markerLabel)
             plt.legend(hp, markerlabel, loc = 'upper right',
                                  fontsize = fontSize, numpoints=1,
-                                 bbox_to_anchor=(0.95,0.95),frameon=False)
+                                 bbox_to_anchor=(0.99,0.99),frameon=False)
         else:
             # Put legend to right of the plot in multiple columns as needed
 
@@ -77,7 +77,7 @@ def add_legend(markerLabel, option, rgba, markerSize, fontSize, hp = []):
             # Plot legend of multi-column markers
             # Note: do not use bbox_to_anchor as this cuts off the legend
             plt.legend(hp, markerlabel, loc = 'upper right',
-                        fontsize = fontSize, numpoints=1, ncol = ncol,bbox_to_anchor=(0.95,0.95),frameon=False)
+                        fontsize = fontSize, numpoints=1, ncol = ncol,bbox_to_anchor=(0.99,0.99),frameon=False)
 
     elif type(markerLabel) is dict:
         
@@ -93,7 +93,7 @@ def add_legend(markerLabel, option, rgba, markerSize, fontSize, hp = []):
         # Put legend in a default location
         plt.legend(handles=legend_elements, loc = 'upper right',
                              fontsize = fontSize, numpoints=1,
-                             bbox_to_anchor=(0.95,0.95),frameon=False)
+                             bbox_to_anchor=(0.99,0.99),frameon=False)
 
         if _checkKey(option, 'numberpanels') and option['numberpanels'] == 2:
             # add padding so legend is not cut off
