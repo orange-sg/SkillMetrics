@@ -106,7 +106,7 @@ def plot_pattern_diagram_markers(X,Y,option):
         
         # Plot markers at data points
         limit = option['axismax']
-        rgba = clr.to_rgb(option['markercolor']) + (alpha,) 
+        rgba = option['markercolor'] + (alpha,)
         for i,xval in enumerate(X):
             if abs(X[i]) <= limit and abs(Y[i]) <= limit:
                 # Plot marker
