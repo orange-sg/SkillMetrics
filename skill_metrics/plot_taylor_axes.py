@@ -184,6 +184,7 @@ def plot_taylor_axes(axes, cax, option):
         ytick = list(filter(lambda x: x >= 0 and x <= axes['rmax'], ytick))
         axislim = [axes['rmax']*x for x in [0, 1, 0, 1]]
         plt.axis(axislim)
+        print(ytick)
         plt.xticks(ytick); plt.yticks(ytick)
 
         plt.plot([0, axes['rmax']],[0, 0],
