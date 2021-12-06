@@ -131,14 +131,14 @@ def get_taylor_diagram_options(*args,**kwargs):
     option['labelrms'] = 'RMSD'
     option['locationcolorbar'] = 'NorthOutside'
 
-    option['markercolor'] = 'r'
+    option['markercolor'] = ''
     option['markerdisplayed'] = 'marker'
     option['markerlabel'] = ''
     option['markerlabelcolor'] = 'k'
     option['markerlegend'] = 'off'
     option['markerobs'] = 'none'
     option['markersize'] = 10
-    option['markersymbol'] = '.'
+    option['markersymbol'] = ''
                                 
     negative = CORs[np.where(CORs < 0.0)]
     if len(negative) > 0:
