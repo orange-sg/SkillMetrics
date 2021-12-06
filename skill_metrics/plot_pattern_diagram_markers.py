@@ -55,7 +55,7 @@ def plot_pattern_diagram_markers(X,Y,option):
         # Define markers
         # kind = ['+','o','x','s','d','^','v','p','h','*']
         # colorm = ['#c241415','#e5664b','#f58328','#f5ae4b','#ccd9f7','#74aed4','#3371b0','#194b90']
-        kind = option['markerlabel']
+        kind = option['markersymbol']
         colorm = option['markercolor']
         if len(X) > 70:
             _disp('You must introduce new markers to plot more than 70 cases.')
