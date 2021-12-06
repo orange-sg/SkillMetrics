@@ -67,8 +67,6 @@ def plot_pattern_diagram_markers(X,Y,option):
             markercolor = []
             for color in colorm:
                 for symbol in kind:
-                    print(type(symbol))
-                    print(type(marker))
                     marker.append(symbol)
                     rgba = color + (alpha,)
                     markercolor.append(rgba)
@@ -99,7 +97,7 @@ def plot_pattern_diagram_markers(X,Y,option):
         if len(markerlabel) == 0:
             warnings.warn('No markers within axis limit ranges.')
         else:
-            add_legend(markerlabel, option, rgba, markerSize, fontSize, hp)
+            add_legend(markerlabel, option, markercolor, markerSize, fontSize, hp)
     else:
         # Plot markers as dots of a single color with accompanying labels
         # and no legend
