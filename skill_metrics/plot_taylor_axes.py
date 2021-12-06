@@ -44,7 +44,7 @@ def plot_taylor_axes(axes, cax, option):
     '''
     
     ax = []
-    axlabweight = 'bold'
+    axlabweight = 'normal'
     fontSize = rcParams.get('font.size') + 2
     lineWidth = rcParams.get('lines.linewidth')
 
