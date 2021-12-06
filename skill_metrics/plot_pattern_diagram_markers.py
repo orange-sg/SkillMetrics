@@ -112,7 +112,7 @@ def plot_pattern_diagram_markers(X,Y,option):
                 marker = option['markersymbol']
                 plt.plot(X[i],Y[i],marker, markersize = markerSize, 
                      markerfacecolor = rgba[i],
-                     markeredgecolor = option['markercolor'])
+                     markeredgecolor = rgba[i])
                 
                 # Check if marker labels provided
                 if type(option['markerlabel']) is list:
