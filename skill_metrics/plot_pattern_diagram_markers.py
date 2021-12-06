@@ -111,7 +111,7 @@ def plot_pattern_diagram_markers(X,Y,option):
                 # Plot marker
                 marker = option['markersymbol']
                 plt.plot(X[i],Y[i],marker, markersize = markerSize, 
-                     markerfacecolor = rgba,
+                     markerfacecolor = rgba[i],
                      markeredgecolor = option['markercolor'])
                 
                 # Check if marker labels provided
