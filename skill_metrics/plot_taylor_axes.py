@@ -185,7 +185,8 @@ def plot_taylor_axes(axes, cax, option):
         axislim = [axes['rmax']*x for x in [0, 1, 0, 1]]
         plt.axis(axislim)
         print(ytick)
-        plt.xticks(ytick); plt.yticks(ytick)
+        print(axes['rmax'])
+        plt.xticks(ytick,['0','0.5','1.0']); plt.yticks(ytick,['','0.5','1.0'])
 
         plt.plot([0, axes['rmax']],[0, 0],
                  color = axes['tc'], linewidth = lineWidth+2)
