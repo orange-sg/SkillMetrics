@@ -77,10 +77,10 @@ def plot_pattern_diagram_markers(X,Y,option):
             # Define markers and colors using predefined list
             marker = []
             markercolor = [] #Bug Fix: missing array initialization
-            for color in colorm:
-                for symbol in kind:
-                    marker.append(symbol)
-                    rgba = color + (alpha,)
+            if len(colorm) == len(kind):
+                for i in range(len(colorm)):
+                    marker.append(kind[i])
+                    rgba = colorm[i] + (alpha,)
                     markercolor.append(rgba)
         
         # Plot markers at data points
