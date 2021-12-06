@@ -58,7 +58,7 @@ def plot_taylor_axes(axes, cax, option):
             ax.append(handle)
         
         if option['titlecor'] == 'on':
-            pos1 = 45; DA = 13;#45,15
+            pos1 = 45; DA = 10;#45,15
             lab = 'Correlation Coefficient' 
             c = np.fliplr([np.linspace(pos1-DA,pos1+DA,len(lab))])[0]
             dd = 1.1*axes['rmax']
