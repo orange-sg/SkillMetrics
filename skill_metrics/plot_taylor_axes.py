@@ -44,8 +44,8 @@ def plot_taylor_axes(axes, cax, option):
     '''
     
     ax = []
-    axlabweight = 'normal'
-    fontSize = rcParams.get('font.size') + 2
+    axlabweight = 'bold'
+    fontSize = rcParams.get('font.size') + 4
     lineWidth = rcParams.get('lines.linewidth')
 
     if option['numberpanels'] == 1:
@@ -58,7 +58,7 @@ def plot_taylor_axes(axes, cax, option):
             ax.append(handle)
         
         if option['titlecor'] == 'on':
-            pos1 = 45; DA = 10;#45,15
+            pos1 = 45; DA = 15;#45,15
             lab = 'Correlation Coefficient' 
             c = np.fliplr([np.linspace(pos1-DA,pos1+DA,len(lab))])[0]
             dd = 1.1*axes['rmax']
