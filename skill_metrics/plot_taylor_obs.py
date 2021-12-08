@@ -40,7 +40,7 @@ def plot_taylor_obs(ax, obsSTD, axes, option):
     
     if option['markerobs'] != 'none':
         # Display marker on x-axis indicating observed STD
-        markersize = option['markersize'] - 4
+        markersize = option['markersize']
         yobsSTD = 0.001*axes['rmax'] - axes['rmin']
         plt.plot(obsSTD,yobsSTD,option['markerobs'],color = option['colobs'],
                  markersize = markersize, markerfacecolor = option['colobs'],

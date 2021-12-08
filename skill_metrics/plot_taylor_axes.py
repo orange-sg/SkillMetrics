@@ -81,7 +81,7 @@ def plot_taylor_axes(axes, cax, option):
         
         if option['titlerms'] == 'on':
             lab = option['labelrms']
-            pos1 = option['titlermsdangle']; DA = 6#10
+            pos1 = option['titlermsdangle']; DA = 8#10
             c = np.fliplr([np.linspace(pos1-DA,pos1+DA,len(lab))])[0]
             if option['tickrms'][0] > 0:
                 dd = 0.8*option['tickrms'][0] + 0.2*option['tickrms'][1]
@@ -187,7 +187,7 @@ def plot_taylor_axes(axes, cax, option):
         print(ytick)
         print(axes['rmax'])
         ytick= [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
-        plt.xticks(ytick,['0', '', 0.5, '', 'REF', '', 1.5]); plt.yticks(ytick,['0', '', 0.5, '', 'REF', '', 1.5])
+        plt.xticks(ytick,['0', '', '0.5', '', 'REF', '', '1.5']); plt.yticks(ytick,['0', '', '0.5', '', '1.0', '', '1.5'])
 
         plt.plot([0, axes['rmax']],[0, 0],
                  color = axes['tc'], linewidth = lineWidth+2)
