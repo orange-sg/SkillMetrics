@@ -81,7 +81,7 @@ def plot_taylor_axes(axes, cax, option):
         
         if option['titlerms'] == 'on':
             lab = option['labelrms']
-            pos1 = option['titlermsdangle']; DA = 8#10
+            pos1 = option['titlermsdangle']; DA = 10#10
             c = np.fliplr([np.linspace(pos1-DA,pos1+DA,len(lab))])[0]
             if option['tickrms'][0] > 0:
                 dd = 0.8*option['tickrms'][0] + 0.2*option['tickrms'][1]
