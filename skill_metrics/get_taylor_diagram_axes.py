@@ -46,13 +46,15 @@ def get_taylor_diagram_axes(rho,option):
         maxrho = max(abs(rho))
     else:
         maxrho = option['axismax'];
+    print(maxrho)
 
     # Determine default number of tick marks
     if option['overlay'] =='off':
         plt.xlim(-maxrho,maxrho)
     xt, lab = plt.xticks()
+    # print(xt)
     ticks = sum(xt >= 0);
-    print(ticks)
+    # print(ticks)
     
     # Check radial limits and ticks
     axes['rmin'] = 0; 
@@ -62,7 +64,7 @@ def get_taylor_diagram_axes(rho,option):
     else:
         axes['rmax'] = option['axismax']
     rticks = np.amax(ticks-1,axis=0)
-    print(rticks)
+    # print(rticks)
     if rticks > 5: # see if we can reduce the number
         if rticks % 2 == 0:
             rticks = rticks/2

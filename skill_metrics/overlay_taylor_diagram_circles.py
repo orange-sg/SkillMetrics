@@ -45,9 +45,11 @@ def overlay_taylor_diagram_circles(axes,cax,option):
     th = np.arange(0, 2*np.pi, np.pi/150)
     xunit = np.cos(th)
     yunit = np.sin(th)
+    # print('th ' + str(len(th)))
 
     # now really force points on x/y axes to lie on them exactly
     inds = range(0,len(th),(len(th)-1) // 4)
+    # print(inds)
     xunit[inds[1:5:2]] = np.zeros(2)
     yunit[inds[0:6:2]] = np.zeros(3)
     
