@@ -70,9 +70,10 @@ def get_taylor_diagram_axes(rho,option):
             rticks = rticks/2
         elif rticks % 3 == 0:
             rticks = rticks/3
+    rticks = 6
     axes['rinc']  = (axes['rmax'] - axes['rmin'])/rticks
     tick  = np.arange(axes['rmin'] + axes['rinc'],axes['rmax'] + axes['rinc'],axes['rinc']) 
-    
+
     if len(option['tickrms']) == 0:
         option['tickrms'] = tick; option['rincrms'] = axes['rinc']
     if len(option['tickstd']) == 0:
