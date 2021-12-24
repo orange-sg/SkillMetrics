@@ -69,7 +69,7 @@ def taylor_diagram(*args, **kwargs):
 
     # Check for number of arguments
     nargin = len(args)
-    STDs, RMSs, CORs,cppltax = _get_taylor_diagram_arguments(*args,**kwargs)
+    STDs, RMSs, CORs = _get_taylor_diagram_arguments(*args,**kwargs)
     if nargin == 0: return
 
     # Get options
@@ -82,10 +82,9 @@ def taylor_diagram(*args, **kwargs):
     # Express statistics in polar coordinates.
     rho   = STDs
     theta = np.arccos(CORs)
-    cppltax=cppltax
 
     #  Get axis values for plot
-    axes, cax = get_taylor_diagram_axes(rho,cppltax,option)
+    axes, cax = get_taylor_diagram_axes(rho,option)
 
     if option['overlay'] == 'off':
         # Draw circles about origin
@@ -141,19 +140,18 @@ def _get_taylor_diagram_arguments(*args,**kwargs):
     
     import numbers
     
-    STDs=[]; RMSs=[]; CORs=[];cppltax=[];
+    STDs=[]; RMSs=[]; CORs=[];
     nargin = len(args)
     if nargin == 0:
         # Display options list
         _display_taylor_diagram_options()
         return STDs, RMSs, CORs
-    elif nargin != 4:
-        raise ValueError('Must supply 4 arguments.')
+    elif nargin != 3:
+        raise ValueError('Must supply 3 arguments.')
 
     STDs = args[0]
     RMSs = args[1]
     CORs = args[2]
-    cppltax=args[3]
 
     # Test the above are numeric quantities
     if isinstance(STDs, array):
@@ -177,7 +175,7 @@ def _get_taylor_diagram_arguments(*args,**kwargs):
     if not isinstance(CORs, (np.ndarray, array)):
         raise ValueError('Argument CORs is not a numeric array')
 
-    return STDs, RMSs, CORs,cppltax
+    return STDs, RMSs, CORs
 
 def _display_taylor_diagram_options():
     '''

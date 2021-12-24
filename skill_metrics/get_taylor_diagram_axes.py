@@ -1,9 +1,8 @@
 import matplotlib.ticker as ticker
 import matplotlib.pyplot as plt
 import numpy as np
-import proplot as pplt
 
-def get_taylor_diagram_axes(rho,cppltax,option):
+def get_taylor_diagram_axes(rho,option):
     '''
     Get axes value for taylor_diagram function.
     
@@ -38,7 +37,7 @@ def get_taylor_diagram_axes(rho,cppltax,option):
     axes = {}
     axes['dx'] = rho[0]
        
-    cax = cppltax
+    cax = plt.gca()
     axes['tc'] = cax.xaxis.label.get_color()
     axes['next'] = 'replace' #needed?
     
