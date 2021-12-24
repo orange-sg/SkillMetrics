@@ -147,8 +147,8 @@ def _get_taylor_diagram_arguments(*args,**kwargs):
         # Display options list
         _display_taylor_diagram_options()
         return STDs, RMSs, CORs
-    elif nargin != 3:
-        raise ValueError('Must supply 3 arguments.')
+    elif nargin != 4:
+        raise ValueError('Must supply 4 arguments.')
 
     STDs = args[0]
     RMSs = args[1]
