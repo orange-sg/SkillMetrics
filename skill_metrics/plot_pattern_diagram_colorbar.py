@@ -1,4 +1,4 @@
-import proplot as pplt
+import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from matplotlib import ticker
 import math
@@ -58,7 +58,7 @@ def plot_pattern_diagram_colorbar(X,Y,Z,option):
     cxscale = fontSize/10 # scale color bar by font size
     markerSize = option['markersize']**2
 
-    hp = pplt.scatter(X,Y, s=markerSize, c=Z, marker = 'd')
+    hp = plt.scatter(X,Y, s=markerSize, c=Z, marker = 'd')
     hp.set_facecolor(hp.get_edgecolor())
     
     # Set parameters for color bar location
@@ -84,7 +84,7 @@ def plot_pattern_diagram_colorbar(X,Y,Z,option):
     # Add color bar to plot
     if option['colormap'] == 'on':
         # map color shading of markers to colormap 
-        hc = pplt.colorbar(orientation = orientation, aspect = aspect,
+        hc = plt.colorbar(orientation = orientation, aspect = aspect,
                           fraction = fraction, pad=0.06)
 
         # Limit number of ticks on color bar to reasonable number
@@ -94,8 +94,8 @@ def plot_pattern_diagram_colorbar(X,Y,Z,option):
     elif option['colormap'] == 'off':
         # map color shading of markers to min to max range of Z values
         if len(Z) > 1:
-            pplt.clim(min(Z), max(Z))
-            hc = pplt.colorbar(orientation = orientation, aspect = aspect,
+            plt.clim(min(Z), max(Z))
+            hc = plt.colorbar(orientation = orientation, aspect = aspect,
                             fraction = fraction, pad=0.06, ticks=[min(Z), max(Z)])
             
             # Label just min/max range

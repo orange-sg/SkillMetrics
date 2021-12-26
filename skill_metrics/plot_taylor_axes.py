@@ -1,4 +1,4 @@
-import proplot as pplt
+import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import numpy as np
 
@@ -52,7 +52,7 @@ def plot_taylor_axes(axes, cax, option):
         # Single panel
         
         if option['titlestd'] == 'on':
-            handle = pplt.ylabel('NSTD',
+            handle = plt.ylabel('NSTD',
                               color = option['colstd'], 
                               fontweight = axlabweight, fontsize = fontSize)
             ax.append(handle)
@@ -70,7 +70,7 @@ def plot_taylor_axes(axes, cax, option):
             #                 horizontalalignment = 'center',
             #                 verticalalignment = 'bottom',
             #                 fontsize = fontSize, fontweight = axlabweight)
-            handle = pplt.text(dd*np.cos(45*np.pi/180),
+            handle = plt.text(dd*np.cos(45*np.pi/180),
                                    dd*np.sin(45*np.pi/180),
                                    lab)
             handle.set(rotation = 45-90,color = option['colcor'],
@@ -98,7 +98,7 @@ def plot_taylor_axes(axes, cax, option):
             for ii,ith in enumerate(c):
                 xtextpos = axes['dx'] + dd*np.cos(ith*np.pi/180) 
                 ytextpos = dd*np.sin(ith*np.pi/180) 
-                handle = pplt.text(xtextpos,ytextpos,lab[ii])
+                handle = plt.text(xtextpos,ytextpos,lab[ii])
                 handle.set(rotation = ith-90, color = option['colrms'], 
                     horizontalalignment = 'center', 
                     verticalalignment = 'top', 
@@ -109,7 +109,7 @@ def plot_taylor_axes(axes, cax, option):
         # Double panel
     
         if option['titlestd'] == 'on':
-            handle = pplt.xlabel('Standard Deviation (Normalized)',
+            handle = plt.xlabel('Standard Deviation (Normalized)',
                               color = option['colstd'], 
                               fontweight = axlabweight, fontsize = fontSize)
             ax.append(handle)
@@ -122,7 +122,7 @@ def plot_taylor_axes(axes, cax, option):
 
             # Write label in a circular arc
             for ii,ith in enumerate(c):
-                handle = pplt.text(dd*np.cos(ith*np.pi/180),
+                handle = plt.text(dd*np.cos(ith*np.pi/180),
                                   dd*np.sin(ith*np.pi/180),lab[ii])
                 handle.set(rotation = ith-90, color = option['colcor'],
                     horizontalalignment = 'center', 
@@ -148,7 +148,7 @@ def plot_taylor_axes(axes, cax, option):
             for ii,ith in enumerate(c):
                 xtextpos = axes['dx'] + dd*np.cos(ith*np.pi/180) 
                 ytextpos = dd*np.sin(ith*np.pi/180) 
-                handle = pplt.text(xtextpos,ytextpos,lab[ii])
+                handle = plt.text(xtextpos,ytextpos,lab[ii])
                 handle.set(rotation = ith-90, color = option['colrms'],
                     horizontalalignment = 'center', 
                     verticalalignment = 'bottom',
@@ -157,41 +157,41 @@ def plot_taylor_axes(axes, cax, option):
     
 
     #  Set color of tick labels to that specified for STD contours
-    pplt.gca().tick_params(axis='x', colors=option['colstd'])
-    pplt.gca().tick_params(axis='y', colors=option['colstd'])
+    plt.gca().tick_params(axis='x', colors=option['colstd'])
+    plt.gca().tick_params(axis='y', colors=option['colstd'])
 
     # VARIOUS ADJUSTMENTS TO THE PLOT:
     cax.set_aspect('equal')
-    pplt.box(on=None)
+    plt.box(on=None)
 
     # set axes limits, set ticks, and draw axes lines
     if option['numberpanels'] == 2:
         xtick = [-option['tickstd'], option['tickstd']]
         xtick = np.concatenate((-option['tickstd'][1:], option['tickstd']), axis=None)
         xtick = np.sort(xtick)
-        pplt.xticks(xtick)
+        plt.xticks(xtick)
 
         axislim = [axes['rmax']*x for x in [-1, 1, 0, 1]]
-        pplt.axis(axislim)
-        pplt.plot([-axes['rmax'], axes['rmax']],[0, 0],
+        plt.axis(axislim)
+        plt.plot([-axes['rmax'], axes['rmax']],[0, 0],
                  color = axes['tc'], linewidth = lineWidth+1)
-        pplt.plot([0, 0],[0, axes['rmax']], color = axes['tc'])
+        plt.plot([0, 0],[0, axes['rmax']], color = axes['tc'])
 
         # hide y-axis line
-        pplt.gca().axes.get_yaxis().set_visible(False)
+        plt.gca().axes.get_yaxis().set_visible(False)
     else:
-        ytick, ylab = pplt.yticks()
+        ytick, ylab = plt.yticks()
         ytick = list(filter(lambda x: x >= 0 and x <= axes['rmax'], ytick))
         axislim = [axes['rmax']*x for x in [0, 1, 0, 1]]
-        pplt.axis(axislim)
+        plt.axis(axislim)
         print(ytick)
         print(axes['rmax'])
         ytick= [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
-        pplt.xticks(ytick,['0', '', '0.5', '', 'REF', '', '1.5']); plt.yticks(ytick,['', '', '0.5', '', '1.0', '', '1.5'])
+        plt.xticks(ytick,['0', '', '0.5', '', 'REF', '', '1.5']); plt.yticks(ytick,['', '', '0.5', '', '1.0', '', '1.5'])
 
-        pplt.plot([0, axes['rmax']],[0, 0],
+        plt.plot([0, axes['rmax']],[0, 0],
                  color = axes['tc'], linewidth = lineWidth+2)
-        pplt.plot([0, 0],[0, axes['rmax']],
+        plt.plot([0, 0],[0, axes['rmax']],
                  color = axes['tc'], linewidth = lineWidth+1)
 
     return ax

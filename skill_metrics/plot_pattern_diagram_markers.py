@@ -1,4 +1,4 @@
-import proplot as pplt
+import matplotlib.pyplot as plt
 import matplotlib.colors as clr
 import matplotlib
 import warnings
@@ -88,7 +88,7 @@ def plot_pattern_diagram_markers(X,Y,option):
         markerlabel = []
         for i, xval in enumerate(X):
             if abs(X[i]) <= limit and abs(Y[i]) <= limit:
-                h = pplt.plot(X[i],Y[i],marker[i], color = markercolor[i],markersize = markerSize,
+                h = plt.plot(X[i],Y[i],marker[i], color = markercolor[i],markersize = markerSize,
                      markerfacecolor = markercolor[i],
                      markeredgecolor = markercolor[i],
                      markeredgewidth = 2)
@@ -111,7 +111,7 @@ def plot_pattern_diagram_markers(X,Y,option):
             if abs(X[i]) <= limit and abs(Y[i]) <= limit:
                 # Plot marker
                 marker = option['markersymbol']
-                pplt.plot(X[i],Y[i],marker[i], color = rgba[i],markersize = markerSize,
+                plt.plot(X[i],Y[i],marker[i], color = rgba[i],markersize = markerSize,
                      markerfacecolor = rgba[i],
                      markeredgecolor = rgba[i])
                 
@@ -120,7 +120,7 @@ def plot_pattern_diagram_markers(X,Y,option):
                     # Label marker
                     xtextpos = X[i]
                     ytextpos = Y[i]
-                    pplt.text(xtextpos,ytextpos,option['markerlabel'][i],
+                    plt.text(xtextpos,ytextpos,option['markerlabel'][i],
                              color = option['markerlabelcolor'],
                              verticalalignment = 'bottom',
                              horizontalalignment = 'right',

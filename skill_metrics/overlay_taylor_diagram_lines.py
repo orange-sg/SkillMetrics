@@ -1,4 +1,4 @@
-import proplot as pplt
+import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import numpy as np
 
@@ -39,7 +39,7 @@ def overlay_taylor_diagram_lines(axes,cax,option):
     cs = np.append(-1.0*cst, cst)
     sn = np.append(-1.0*snt, snt)
     for i,val in enumerate(cs):
-        pplt.plot([0, axes['rmax']*cs[i]],[0, axes['rmax']*sn[i]],
+        cax.plot([0, axes['rmax']*cs[i]],[0, axes['rmax']*sn[i]],
                  linestyle = option['stylecor'],
                  color = option['colcor'], linewidth = option['widthcor'])
     
@@ -53,6 +53,6 @@ def overlay_taylor_diagram_lines(axes,cax,option):
             else:
                 x = rt*cst[i]
             y = rt*snt[i]
-            pplt.text(x,y,str(round(cc,2)),
+            cax.text(x,y,str(round(cc,2)),
                      horizontalalignment = 'center',
                      color = option['colcor'], fontsize = fontSize)

@@ -1,4 +1,4 @@
-import proplot as pplt
+import matplotlib.pyplot as plt
 import numpy as np
 
 def plot_taylor_obs(ax, obsSTD, axes, option):
@@ -42,7 +42,7 @@ def plot_taylor_obs(ax, obsSTD, axes, option):
         # Display marker on x-axis indicating observed STD
         markersize = option['markersize']
         yobsSTD = 0.001*axes['rmax'] - axes['rmin']
-        pplt.plot(obsSTD,yobsSTD,option['markerobs'],color = option['colobs'],
+        plt.plot(obsSTD,yobsSTD,option['markerobs'],color = option['colobs'],
                  markersize = markersize, markerfacecolor = option['colobs'],
                  markeredgecolor = option['colobs'],
                  linewidth = 1.0, clip_on=False);
@@ -50,11 +50,11 @@ def plot_taylor_obs(ax, obsSTD, axes, option):
     if option['titleobs'] != '':
         # Put label below the marker
         labelsize = ax[0].get_fontsize() # get label size of STD axes
-        pplt.xlabel(option['titleobs'], color = option['colobs'],
+        plt.xlabel(option['titleobs'], color = option['colobs'],
                    fontweight = 'normal', fontsize = labelsize)
-        xlabelh = pplt.gca().xaxis.get_label()
+        xlabelh = plt.gca().xaxis.get_label()
         xypos = xlabelh.get_position()
-        markerpos = pplt.gca().transLimits.transform((obsSTD,0))
+        markerpos = plt.gca().transLimits.transform((obsSTD,0))
         xlabelh.set_position([markerpos[0], xypos[1]])
         xlabelh.set_horizontalalignment('center')
     
@@ -63,5 +63,5 @@ def plot_taylor_obs(ax, obsSTD, axes, option):
         theta = np.arange(0, 2*np.pi, np.pi/150)
         xunit = obsSTD*np.cos(theta)
         yunit = obsSTD*np.sin(theta)
-        pplt.plot(xunit,yunit,linestyle=option['styleobs'],
+        plt.plot(xunit,yunit,linestyle=option['styleobs'],
                  color = option['colobs'],linewidth = option['widthobs'])

@@ -1,7 +1,7 @@
 
 import matplotlib
 import numpy as np
-import proplot as pplt
+import matplotlib.pyplot as plt
 
 def overlay_taylor_diagram_circles(axes,cax,option):
     '''
@@ -77,7 +77,7 @@ def overlay_taylor_diagram_circles(axes,cax,option):
             phi = phi[0]
             ig = np.where(iradius*np.cos(th)+axes['dx'] <=
                           axes['rmax']*np.cos(phi))
-            hhh = pplt.plot(xunit[ig]*iradius+axes['dx'],yunit[ig]*iradius,
+            hhh = plt.plot(xunit[ig]*iradius+axes['dx'],yunit[ig]*iradius,
                            linestyle = option['stylerms'],color = option['colrms'],
                            linewidth = option['widthrms'])
             if option['showlabelsrms'] == 'on':
@@ -88,7 +88,7 @@ def overlay_taylor_diagram_circles(axes,cax,option):
                 else:
                     xtextpos = rt*cst + axes['dx']
                     ytextpos = rt*snt
-                pplt.text(xtextpos,ytextpos, '  ' + labelFormat.format(iradius),
+                plt.text(xtextpos,ytextpos, '  ' + labelFormat.format(iradius),
                          horizontalalignment = 'center', verticalalignment = 'baseline',
                          color = option['colrms'], rotation = tickRMSAngle - 90,
                          fontsize = fontSize)
@@ -96,7 +96,7 @@ def overlay_taylor_diagram_circles(axes,cax,option):
     # DRAW STD CIRCLES:
     # draw radial circles
     for i in option['tickstd']:
-        hhh = pplt.plot(xunit*i,yunit*i,linestyle = option['stylestd'],
+        hhh = plt.plot(xunit*i,yunit*i,linestyle = option['stylestd'],
                    color = option['colstd'], linewidth = option['widthstd'])
 
     # Set tick values for axes
@@ -108,11 +108,11 @@ def overlay_taylor_diagram_circles(axes,cax,option):
         else:
             tickValues = option['tickstd']
 
-    pplt.xticks(tickValues)
+    plt.xticks(tickValues)
 
     hhh[0].set_linestyle('-') # Make outermost STD circle solid
     
     # Draw circle for outer boundary
     i = option['axismax']
-    hhh = pplt.plot(xunit*i,yunit*i,linestyle = option['stylestd'],
+    hhh = plt.plot(xunit*i,yunit*i,linestyle = option['stylestd'],
                color = option['colstd'], linewidth = option['widthstd'])

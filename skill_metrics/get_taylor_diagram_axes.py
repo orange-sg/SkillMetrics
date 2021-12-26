@@ -1,7 +1,6 @@
 import matplotlib.ticker as ticker
-
+import matplotlib.pyplot as plt
 import numpy as np
-import proplot as pplt
 
 def get_taylor_diagram_axes(rho,AXP,option):
     '''
@@ -51,8 +50,8 @@ def get_taylor_diagram_axes(rho,AXP,option):
 
     # Determine default number of tick marks
     if option['overlay'] =='off':
-        pplt.xlim(-maxrho,maxrho)
-    xt, lab = pplt.xticks()
+        plt.xlim(-maxrho,maxrho)
+    xt, lab = plt.xticks()
     # print(xt)
     ticks = sum(xt >= 0);
     print(ticks)
