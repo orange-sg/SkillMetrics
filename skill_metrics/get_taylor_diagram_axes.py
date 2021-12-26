@@ -1,8 +1,9 @@
 import matplotlib.ticker as ticker
-import matplotlib.pyplot as plt
-import numpy as np
 
-def get_taylor_diagram_axes(rho,option):
+import numpy as np
+import proplot as pplt
+
+def get_taylor_diagram_axes(rho,AXP,option):
     '''
     Get axes value for taylor_diagram function.
     
@@ -37,7 +38,7 @@ def get_taylor_diagram_axes(rho,option):
     axes = {}
     axes['dx'] = rho[0]
        
-    cax = plt.gca()
+    cax = AXP
     axes['tc'] = cax.xaxis.label.get_color()
     axes['next'] = 'replace' #needed?
     
@@ -50,8 +51,8 @@ def get_taylor_diagram_axes(rho,option):
 
     # Determine default number of tick marks
     if option['overlay'] =='off':
-        plt.xlim(-maxrho,maxrho)
-    xt, lab = plt.xticks()
+        pplt.xlim(-maxrho,maxrho)
+    xt, lab = pplt.xticks()
     # print(xt)
     ticks = sum(xt >= 0);
     print(ticks)

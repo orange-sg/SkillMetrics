@@ -1,5 +1,5 @@
-import matplotlib.pyplot as plt
-import matplotlib
+import proplot as pplt
+from matplotlib import rcParams
 import numpy as np
 
 def overlay_taylor_diagram_lines(axes,cax,option):
@@ -39,13 +39,13 @@ def overlay_taylor_diagram_lines(axes,cax,option):
     cs = np.append(-1.0*cst, cst)
     sn = np.append(-1.0*snt, snt)
     for i,val in enumerate(cs):
-        plt.plot([0, axes['rmax']*cs[i]],[0, axes['rmax']*sn[i]], 
+        pplt.plot([0, axes['rmax']*cs[i]],[0, axes['rmax']*sn[i]],
                  linestyle = option['stylecor'],
                  color = option['colcor'], linewidth = option['widthcor'])
     
     # annotate them in correlation coefficient
     if option['showlabelscor'] == 'on':
-        fontSize = matplotlib.rcParams.get('font.size')
+        fontSize = rcParams.get('font.size')
         rt = 1.05*axes['rmax']
         for i,cc in enumerate(corr):
             if option['numberpanels'] == 2:
@@ -53,6 +53,6 @@ def overlay_taylor_diagram_lines(axes,cax,option):
             else:
                 x = rt*cst[i]
             y = rt*snt[i]
-            plt.text(x,y,str(round(cc,2)),
+            pplt.text(x,y,str(round(cc,2)),
                      horizontalalignment = 'center',
                      color = option['colcor'], fontsize = fontSize)
